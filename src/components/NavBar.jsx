@@ -9,10 +9,10 @@ function NavBar() {
   return (
     <nav className="fixed top-0 left-0 shadow-md z-50  bg-secondary-light/70 backdrop-blur-sm w-full h-16 flex justify-between items-center p-5">
       <div className="gap-5">
-        <Link href={"#about"} className="pr-4 hover:text-accent">
+        <Link href={"/#about"} className="pr-4 hover:text-accent">
           Sobre Mi
         </Link>
-        <Link href={"#proyects"} className="hover:text-accent">
+        <Link href={"/#proyects"} className="hover:text-accent">
           Mis Proyectos
         </Link>
       </div>
