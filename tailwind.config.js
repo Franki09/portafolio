@@ -15,8 +15,8 @@ module.exports = {
           light: "#f5c2fe", // violeta pastel
         },
         secondary: {
-          light: "#b2ebf2", // celeste pastel
-          dark: "#0097a7", // celeste oscuro
+          light: "rgb(178 235 242 / <alpha-value>)", // celeste pastel con opacidad
+          dark: "rgb(0 151 167 / <alpha-value>)", // celeste oscuro con opacidad
         },
         accent: "#fbc02d", // amarillo de acento 🌟
 
@@ -25,6 +25,11 @@ module.exports = {
           base: "#737373",
           dark: "#171717",
         },
+      },
+    },
+    variants: {
+      extend: {
+        backdropBlur: ["responsive"],
       },
     },
   },
