@@ -10,9 +10,9 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          dark: "#770186", // violeta oscuro
-          base: "#df03fc", // tu color 🎯
-          light: "#f5c2fe", // violeta pastel
+          dark: "#004d40", // verde azulado oscuro
+          base: "#00897b", // turquesa
+          light: "#80cbc4", // turquesa claro
         },
         secondary: {
           light: "rgb(178 235 242 / <alpha-value>)", // celeste pastel con opacidad
