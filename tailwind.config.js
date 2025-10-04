@@ -32,6 +32,23 @@ module.exports = {
         backdropBlur: ["responsive"],
       },
     },
+
+    keyframes: {
+      shake: {
+        "0%, 100%": { transform: "translateX(0)" },
+        "25%": { transform: "translateX(-4px)" },
+        "75%": { transform: "translateX(4px)" },
+      },
+      tilt: {
+        "0%, 100%": { transform: "rotate(0deg)" },
+        "25%": { transform: "rotate(-2deg)" },
+        "75%": { transform: "rotate(2deg)" },
+      },
+    },
+    animation: {
+      shake: "shake 0.3s ease-in-out",
+      tilt: "tilt 0.5s ease-in-out infinite",
+    },
   },
   plugins: [],
 };
