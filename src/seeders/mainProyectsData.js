@@ -22,6 +22,7 @@ export const mainProyects = [
     for: {
       name: "Henry Bootcamp",
       image: "/logos/logoHenry.jpg",
+      web: "https://www.soyhenry.com/",
       when: "May - June / 2025 ",
     },
     repoUrl: "https://github.com/Franki09/PM4FE-Franki09",
@@ -63,6 +64,7 @@ export const mainProyects = [
     for: {
       name: "Henry Bootcamp",
       image: "/logos/logoHenry.jpg",
+      web: "https://www.soyhenry.com/",
       when: "June - August / 2025",
     },
     repoUrl: "https://github.com/solvex-company/solvex-front",

@@ -3,9 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { VerticalImageCarousel } from "./components/VerticalImages";
+import { use } from "react";
 
 function ProyectDetail({ params }) {
-  const proyecto = mainProyects.find((p) => p.id === params.id);
+  const { id } = use(params);
+  const proyecto = mainProyects.find((p) => p.id === id);
 
   if (!proyecto) {
     notFound();
@@ -83,7 +85,15 @@ function ProyectDetail({ params }) {
               <div className="pt-4">
                 <div className="flex items-center gap-3 mb-2">
                   <h3 className="text-2xl font-bold text-secondary-dark">Desarrollado para {proyecto.for.name}</h3>
-                  <Image src={proyecto.for.image} alt={proyecto.for.name} height={50} width={50} className="rounded-full" />
+                  <Link href={proyecto.for.web} target="_blank" rel="noopener noreferrer">
+                    <Image
+                      src={proyecto.for.image}
+                      alt={proyecto.for.name}
+                      height={50}
+                      width={50}
+                      className="rounded-full hover:animate-wiggle hover:animate-infinite"
+                    />
+                  </Link>
                 </div>
                 {/* Texto de tiempo de desarrollo cambiado a gris */}
                 <p className="text-base text-gray-600">
@@ -98,14 +108,14 @@ function ProyectDetail({ params }) {
             <Link
               href={proyecto.repoUrl}
               target="_blank"
-              className="flex-1 text-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors text-lg font-semibold"
+              className="flex-1 text-center px-6 py-3 bg-secondary-dark text-white rounded-lg hover:bg-secondary-dark/70 hover:scale-105 transition-colors text-lg font-semibold"
             >
               Ver Repositorio
             </Link>
             <Link
               href={proyecto.deployUrl}
               target="_blank"
-              className="flex-1 text-center px-6 py-3 bg-primary-base text-white rounded-lg hover:bg-primary-dark transition-colors text-lg font-semibold"
+              className="flex-1 text-center px-6 py-3 bg-primary-base text-white rounded-lg hover:bg-primary-base/70 hover:scale-105 transition-colors text-lg font-semibold"
             >
               Ver Proyecto en vivo{proyecto.note.exist === true && <span className="text-red-500">*</span>}
             </Link>

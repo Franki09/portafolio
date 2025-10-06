@@ -50,5 +50,5 @@ module.exports = {
       tilt: "tilt 0.5s ease-in-out infinite",
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animated")],
 };
