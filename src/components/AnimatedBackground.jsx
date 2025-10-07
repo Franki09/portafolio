@@ -28,9 +28,13 @@ export default function AnimatedBackground() {
         }
 
         .animated-gradient {
-          background: linear-gradient(-45deg, #e0f2fe, #bae6fd, #7dd3fc, #38bdf8);
+          background: linear-gradient(-45deg, #80cbc4, #b2ebf2, #00897b, #80cbc4);
           background-size: 400% 400%;
           animation: gradient-shift 15s ease infinite;
+        }
+
+        .gradient-overlay {
+          background: linear-gradient(to bottom, transparent 0%, transparent 60%, rgba(128, 203, 196, 0.5) 85%, #80cbc4 100%);
         }
 
         .floating-shapes {
@@ -51,7 +55,7 @@ export default function AnimatedBackground() {
         .shape-1 {
           width: 400px;
           height: 400px;
-          background: #22d3ee;
+          background: #00897b;
           top: 10%;
           left: 10%;
           animation: float 10s ease-in-out infinite;
@@ -60,7 +64,7 @@ export default function AnimatedBackground() {
         .shape-2 {
           width: 300px;
           height: 300px;
-          background: #67e8f9;
+          background: #80cbc4;
           top: 50%;
           right: 10%;
           animation: float 12s ease-in-out infinite;
@@ -70,7 +74,7 @@ export default function AnimatedBackground() {
         .shape-3 {
           width: 350px;
           height: 350px;
-          background: #a5f3fc;
+          background: #b2ebf2;
           bottom: 15%;
           left: 45%;
           animation: float 14s ease-in-out infinite;
@@ -79,7 +83,8 @@ export default function AnimatedBackground() {
       `}</style>
 
       <div className="fixed inset-0 -z-10 animated-gradient">
-        <div className="absolute inset-0 bg-white/20"></div>
+        <div className="absolute inset-0 bg-white/10"></div>
+        <div className="absolute inset-0 gradient-overlay"></div>
         <div className="floating-shapes">
           <div className="shape shape-1"></div>
           <div className="shape shape-2"></div>

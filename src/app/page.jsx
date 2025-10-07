@@ -8,9 +8,9 @@ import AnimatedBackground from "@/components/AnimatedBackground";
 export default function Home() {
   return (
     <>
-      {/* <AnimatedBackground /> */}
+      <AnimatedBackground />
 
-      <div className=" bg-primary-light h-full py-20">
+      <div className="h-full py-20">
         <div className="h-screen p-5 flex flex-col justify-center items-center text-center gap-8 relative z-10">
           <div>
             <h1 className="text-6xl md:text-7xl font-bold text-primary-dark mb-4 drop-shadow-lg font-unbounded">

@@ -10,11 +10,6 @@ function AboutMe() {
   const { transform, handleMouseMove, resetTilt } = useTilt(45, 0.95);
   return (
     <div ref={ref} className={isVisible ? "animate-fade-up" : "opacity-0"}>
-      {/* // 1. Degradado de Primary-light (color de la Home) a Secondary-dark (color de la sección) */}
-      <div className="h-20 bg-gradient-to-b from-primary-light to-primary-base">
-        {/* Esto crea una banda de transición de 40 unidades de altura */}
-      </div>
-
       <div id="about" className="bg-primary-base flex justify-center items-center gap-20 p-10 ">
         <div
           onMouseMove={handleMouseMove}
@@ -114,10 +109,6 @@ function AboutMe() {
             </Link>
           </div>
         </div>
-      </div>
-
-      <div className="h-20 bg-gradient-to-b  from-primary-base to-primary-light">
-        {/* Esto crea una banda de transición de 40 unidades de altura */}
       </div>
     </div>
   );
