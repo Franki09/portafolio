@@ -14,37 +14,41 @@ function ProyectDetail({ params }) {
   }
 
   return (
-    <div className="bg-primary-light min-h-screen py-20 px-10">
-      <h1 className="text-5xl font-bold mb-10 text-center text-primary-dark font-unbounded">Detalles del proyecto</h1>
+    <div className="bg-primary-light min-h-screen py-10 sm:py-20 px-4 sm:px-8 md:px-10">
+      <h1 className="text-3xl sm:text-5xl font-bold mb-6 sm:mb-10 text-center text-primary-dark font-unbounded">
+        Detalles del proyecto
+      </h1>
 
-      {/* Layout principal: 60% contenido | 40% imágenes */}
-      <div className="flex gap-8">
-        {/* Columna izquierda - Contenido (60%) */}
-        <div className="w-3/5 space-y-6">
+      {/* Layout principal: flex-col en móvil/tablet | lg:flex-row en PC */}
+      <div className="flex flex-col lg:flex-row gap-8">
+        {/* Columna izquierda - Contenido (60% en PC, w-full en móvil/tablet) */}
+        <div className="w-full lg:w-3/5 space-y-6">
           {/* Contenedor principal con información */}
           <div className="bg-secondary-light border-secondary-dark border-2 rounded-lg space-y-6">
             {/* Título y tipo */}
-            <div className="bg-secondary-dark text-white p-4">
-              <div className="flex justify-between items-center gap-4 mb-2">
-                <h2 className="text-3xl font-bold font-unbounded flex-1">{proyecto.name}</h2>
-                <h2 className="text-2xl text-accent font-bbh flex-shrink-0">{proyecto.devType}</h2>
+            <div className="bg-secondary-dark text-white p-3 sm:p-4">
+              <div className="flex flex-wrap justify-between items-baseline gap-x-4 mb-2">
+                <h2 className="text-2xl sm:text-3xl font-bold font-unbounded flex-1">{proyecto.name}</h2>
+                <h2 className="text-lg sm:text-2xl text-accent font-bbh flex-shrink-0">{proyecto.devType}</h2>
               </div>
-              <p className="text-lg opacity-90 font-grotesk">{proyecto.type}</p>
+              <p className="text-sm sm:text-lg opacity-90 font-grotesk">{proyecto.type}</p>
             </div>
 
             <section className="px-6 pb-6">
               {/* Descripción - Espacio aumentado con pt-4 y pb-8 */}
               <div className="border-b-2 border-accent pt-4 pb-8">
-                <h3 className="text-2xl font-bold mb-3 text-secondary-dark font-grotesk">Descripción</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 text-secondary-dark font-grotesk">Descripción</h3>
                 {/* Texto cambiado a gris */}
-                <p className="text-base leading-relaxed text-gray-600 font-mono">{proyecto.desc}</p>
+                <p className="text-sm sm:text-base leading-relaxed text-gray-600 font-mono">{proyecto.desc}</p>
               </div>
 
               {/* Funcionalidades desarrolladas - Espacio aumentado con pt-4 y pb-6 */}
               <div className="border-b-2 border-accent pt-4 pb-6">
-                <h3 className="text-2xl font-bold mb-3 text-secondary-dark font-grotesk">Funcionalidades desarrolladas</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 text-secondary-dark font-grotesk">
+                  Funcionalidades desarrolladas
+                </h3>
                 {/* Texto cambiado a gris */}
-                <ul className="list-disc list-inside space-y-2 text-base text-gray-600 font-mono">
+                <ul className="list-disc list-inside space-y-2 text-sm sm:text-base text-gray-600 font-mono">
                   {proyecto.devFunctions.map((funciones, index) => (
                     <li key={index} className="leading-relaxed">
                       {funciones}
@@ -55,15 +59,17 @@ function ProyectDetail({ params }) {
 
               {/* Tecnologías utilizadas - Espacio aumentado con pt-4 y pb-6 */}
               <div className="border-b-2 border-accent pt-4 pb-6">
-                <h3 className="text-2xl font-bold mb-3 text-secondary-dark font-grotesk">Tecnologías utilizadas</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 text-secondary-dark font-grotesk">Tecnologías utilizadas</h3>
                 {/* Texto cambiado a gris y negrita para destacar */}
-                <p className="text-base font-semibold text-gray-600 font-mono">{proyecto.techUsed.join(", ")}</p>
+                <p className="text-sm sm:text-base font-semibold text-gray-600 font-mono">{proyecto.techUsed.join(", ")}</p>
               </div>
 
               {/* Colaboradores (si existen) - Espacio aumentado con pt-4 y pb-6 */}
               {proyecto.colaborators?.existed === true && (
                 <div className="border-b-2 border-accent pt-4 pb-6">
-                  <h3 className="text-2xl font-bold font-grotesk mb-3 text-secondary-dark">Colaboradores de Front-End</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold font-grotesk mb-3 text-secondary-dark">
+                    Colaboradores de Front-End
+                  </h3>
                   <ul className="space-y-1 font-mono">
                     {/* El Link se mantiene con colores de Link */}
                     {proyecto.colaborators.socials.map((info, index) => (
@@ -71,7 +77,7 @@ function ProyectDetail({ params }) {
                         <Link
                           href={info.linkedin}
                           target="_blank"
-                          className="text-base text-primary-base hover:text-primary-dark underline transition-colors"
+                          className="text-sm sm:text-base text-primary-base hover:text-primary-dark underline transition-colors"
                         >
                           {info.name}
                         </Link>
@@ -84,19 +90,21 @@ function ProyectDetail({ params }) {
               {/* Información del cliente - Espacio aumentado con pt-4 */}
               <div className="pt-4">
                 <div className="flex items-center gap-3 mb-2">
-                  <h3 className="text-2xl font-bold text-secondary-dark font-grotesk">Desarrollado para {proyecto.for.name}</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-secondary-dark font-grotesk">
+                    Desarrollado para {proyecto.for.name}
+                  </h3>
                   <Link href={proyecto.for.web} target="_blank" rel="noopener noreferrer">
                     <Image
                       src={proyecto.for.image}
                       alt={proyecto.for.name}
-                      height={50}
-                      width={50}
-                      className="rounded-full hover:animate-wiggle hover:animate-infinite"
+                      height={40}
+                      width={40}
+                      className="rounded-full w-10 h-10 hover:animate-wiggle hover:animate-infinite"
                     />
                   </Link>
                 </div>
                 {/* Texto de tiempo de desarrollo cambiado a gris */}
-                <p className="text-base text-gray-600 font-mono">
+                <p className="text-sm sm:text-base text-gray-600 font-mono">
                   Tiempo de desarrollo: <span className="font-semibold text-gray-600">{proyecto.for.when}</span>
                 </p>
               </div>
@@ -104,18 +112,19 @@ function ProyectDetail({ params }) {
           </div>
 
           {/* Enlaces - Fuera del contenedor pero con el mismo ancho */}
-          <div className="flex gap-4 font-unbounded">
+          {/* flex-col en móvil, sm:flex-row en tablet */}
+          <div className="flex flex-col sm:flex-row gap-4 font-unbounded">
             <Link
               href={proyecto.repoUrl}
               target="_blank"
-              className="flex-1 text-center px-6 py-3 bg-secondary-dark text-white rounded-lg hover:bg-secondary-dark/70 hover:scale-105 transition-colors text-lg font-semibold"
+              className="flex-1 text-center px-4 py-3 sm:px-6 bg-secondary-dark text-white rounded-lg hover:bg-secondary-dark/70 hover:scale-105 transition-colors text-sm sm:text-lg font-semibold"
             >
               Ver Repositorio
             </Link>
             <Link
               href={proyecto.deployUrl}
               target="_blank"
-              className="flex-1 text-center px-6 py-3 bg-primary-base text-white rounded-lg hover:bg-primary-base/70 hover:scale-105 transition-colors text-lg font-semibold"
+              className="flex-1 text-center px-4 py-3 sm:px-6 bg-primary-base text-white rounded-lg hover:bg-primary-base/70 hover:scale-105 transition-colors text-sm sm:text-lg font-semibold"
             >
               Ver Proyecto en vivo{proyecto.note.exist === true && <span className="text-red-500">*</span>}
             </Link>
@@ -125,13 +134,14 @@ function ProyectDetail({ params }) {
           {proyecto.note?.exist === true && (
             <div className="bg-red-50 border-2 border-red-300 p-4 rounded-lg">
               {/* Este texto mantiene su color de nota */}
-              <p className="text-red-600 text-base font-mono">*{proyecto.note.text}</p>
+              <p className="text-red-600 text-sm sm:text-base font-mono">*{proyecto.note.text}</p>
             </div>
           )}
         </div>
 
-        {/* Columna derecha - Imágenes (40%) */}
-        <div className="w-2/5">
+        {/* Columna derecha - Imágenes (40% en PC, w-full en móvil/tablet) */}
+        <div className="w-full lg:w-2/5 pt-8 lg:pt-0">
+          {/* 🔴 CAMBIO CLAVE: sticky top-24 SOLO se aplica en el breakpoint lg */}
           <div className="sticky top-24 h-[600px]">
             <VerticalImageCarousel images={proyecto.image} projectName={proyecto.name} />
           </div>

@@ -39,7 +39,7 @@ export function VerticalImageCarousel({ images, projectName }) {
   const visibleImages = getVisibleImages();
 
   return (
-    <div className="flex flex-col gap-4 h-full">
+    <div className="flex flex-col gap-3 sm:gap-4 h-full">
       {/* Imagen superior */}
       <div className="relative h-1/2 rounded-lg overflow-hidden">
         <Image
