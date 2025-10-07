@@ -26,6 +26,12 @@ module.exports = {
           dark: "#171717",
         },
       },
+
+      fontFamily: {
+        unbounded: ["var(--font-unbounded)"],
+        bbh: ["var(--font-bbh-sans)"],
+        grotesk: ["var(--font-space-grotesk)"],
+      },
     },
     variants: {
       extend: {

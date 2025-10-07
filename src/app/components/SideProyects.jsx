@@ -48,27 +48,30 @@ function SideProyects() {
                 </div>
 
                 <div className="flex-1 flex flex-col p-3">
-                  <h3 className="mb-2 text-secondary-dark text-lg font-semibold ">{proyecto.name}</h3>
-                  <p className="flex-1 pb-3 text-gray-600">{proyecto.desc}</p>
+                  <h3 className="mb-2 text-secondary-dark text-lg font-semibold font-unbounded ">{proyecto.name}</h3>
+                  <p className="flex-1 pb-3 text-gray-600 font-mono">{proyecto.desc}</p>
 
                   <div className="flex gap-3 mb-4">
                     {proyecto.techUsed.map((tech, techIndex) => (
-                      <span key={techIndex} className="bg-primary-light rounded-full text-gray-600 font-semibold py-1 px-2">
+                      <span
+                        key={techIndex}
+                        className="bg-primary-light rounded-full text-gray-600 font-semibold font-grotesk py-1 px-2"
+                      >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex justify-around items-center m-2 gap-3">
+                  <div className="flex justify-around items-center font-unbounded m-2 gap-3">
                     <Link
                       href={proyecto.repoUrl}
-                      className="inline-block text-center p-2 w-full bg-primary-base text-white rounded-full hover:scale-110 hover:bg-primary-dark transition-colors"
+                      className="inline-block text-center p-2 w-full  bg-secondary-dark hover:bg-secondary-dark/70 text-white rounded-full hover:scale-110  transition-colors"
                     >
                       Repositorio
                     </Link>
                     <Link
                       href={proyecto.deployUrl}
-                      className="inline-block text-center p-2 w-full bg-primary-base text-white rounded-full hover:scale-110 hover:bg-primary-dark transition-colors"
+                      className="inline-block text-center p-2 w-full bg-primary-base hover:bg-primary-base/70 text-white rounded-full hover:scale-110  transition-colors"
                     >
                       Deploy
                     </Link>

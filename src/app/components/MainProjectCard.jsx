@@ -23,7 +23,7 @@ export function MainProjectCard({ proyect }) {
   }, [proyect.image.length]);
 
   return (
-    <div className="w-full h-full flex flex-col bg-secondary-light rounded-lg border-4 border-secondary-dark hover:scale-105 transform transition-transform duration-300" >
+    <div className="w-full h-full flex flex-col bg-secondary-light rounded-lg border-4 border-secondary-dark hover:scale-105 transform transition-transform duration-300">
       {/* Imagen del contenedor */}
       <div className="relative w-full h-64">
         <Image
@@ -37,10 +37,10 @@ export function MainProjectCard({ proyect }) {
       {/* El resto del contenido */}
       <div className="flex-1 flex flex-col p-3">
         {/* Titulo, tipo de desarrollo y para quien lo hice (todo en un renglon) */}
-        <div className="flex justify-between items-center mb-3">
-          <h2 className="text-secondary-dark font-semibold text-xl">{proyect.name}</h2>
-          <div className="flex justify-center items-center gap-2 bg-primary-base rounded-full p-1">
-            <h3 className="text-secondary-light">{proyect.devType}</h3>
+        <div className="flex justify-between items-center gap-3 mb-3">
+          <h2 className="text-secondary-dark font-semibold text-xl font-unbounded line-clamp-2 flex-1 min-w-0">{proyect.name}</h2>
+          <div className="flex justify-center items-center gap-2 bg-primary-base rounded-full p-1 flex-shrink-0">
+            <h3 className="text-secondary-light font-unbounded text-sm whitespace-nowrap">{proyect.devType}</h3>
             <Link href={proyect.for.web} target="_blank" rel="noopener noreferrer">
               <Image
                 src={proyect.for.image}
@@ -54,16 +54,16 @@ export function MainProjectCard({ proyect }) {
         </div>
 
         {/* Descripcion del proyecto */}
-        <p className="mb-2 flex-1 text-gray-600">{proyect.desc}</p>
+        <p className="mb-2 flex-1 text-gray-600 font-mono flex items-center">{proyect.desc}</p>
 
         {/* Tiempo del proyecto */}
-        <h4 className="mb-4 text-accent font-bold">{proyect.for.when}</h4>
+        <h4 className="mb-4 text-accent text-xl font-grotesk font-semibold">{proyect.for.when}</h4>
 
         {/* Boton para ver mas detalles */}
         <div className="flex justify-center">
           <Link
             href={`/proyect-detail/${proyect.id}`}
-            className="inline-block w-full text-center px-6 py-2 bg-primary-base text-white rounded-xl hover:bg-primary-dark transition-colors hover:scale-105"
+            className="inline-block w-full text-center px-6 py-2 bg-primary-base text-white rounded-xl hover:bg-primary-dark transition-colors hover:scale-105 font-unbounded font-semibold"
           >
             Ver detalles
           </Link>

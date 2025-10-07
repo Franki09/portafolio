@@ -35,28 +35,28 @@ function AboutMe() {
           />
         </div>
         <div className="bg-secondary-light rounded-md p-8 flex-col">
-          <h2 className="pb-4 text-secondary-dark font-bold text-4xl">Hola!</h2>
-          <div className="max-w-2xl pb-3">
-            <p className="pb-3 text-gray-600">
+          <h2 className="pb-4 text-secondary-dark text-4xl font-bbh">Hola!</h2>
+          <div className="max-w-2xl pb-3 text-gray-600 font-mono">
+            <p className="pb-3">
               Soy un desarrollador frontend apasionado por crear experiencias digitales que realmente sumen valor. Mi día a día
               gira en dar vida a interfaces modernas, funcionales y bien estructuradas. Más allá del código, lo que más me motiva
               es pensar en cómo cada detalle puede mejorar la experiencia de usuario y hacer que una web sea intuitiva y agradable
               de usar.
             </p>
-            <p className="pb-3 text-gray-600">
+            <p className="pb-3">
               Me considero una persona creativa, responsable y colaboradora, siempre abierta a aprender algo nuevo y a compartir
               lo que sé. Valoro mucho el trabajo en equipo, porque creo que los mejores proyectos surgen cuando las ideas y
               perspectivas se combinan. Me gusta trabajar en entornos ágiles y dinámicos, donde puedo crecer profesionalmente y
               aportar no solo en lo técnico, sino también en lo humano.
             </p>
-            <p className="pb-3 text-gray-600">
+            <p className="pb-3">
               Actualmente busco seguir evolucionando como profesional, enfrentar nuevos desafíos y, sobre todo, aportar valor en
               cada proyecto en el que participe. Para mí, cada línea de código es una oportunidad de aprender, mejorar y crear
               algo que realmente marque la diferencia.
             </p>
           </div>
 
-          <h2 className="pb-5 text-secondary-dark text-lg">Estas son las tecnologias principales que uso:</h2>
+          <h2 className="pb-5 text-secondary-dark text-lg font-grotesk">Estas son las tecnologias principales que uso:</h2>
           <div className="flex justify-center items-center gap-5">
             <Link href={"https://developer.mozilla.org/en-US/docs/Web/JavaScript"} target="_blank" rel="noopener noreferrer">
               <Image
