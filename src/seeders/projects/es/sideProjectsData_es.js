@@ -1,4 +1,4 @@
-export const sideProyects = [
+export const sideProjectsEs = [
   {
     id: "1",
     name: "Qr Component",

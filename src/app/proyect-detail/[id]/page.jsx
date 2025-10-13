@@ -1,13 +1,33 @@
-import { mainProyects } from "@/seeders/mainProyectsData";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { VerticalImageCarousel } from "./components/VerticalImages";
 import { use } from "react";
+import { mainProjectsEs } from "@/seeders/projects/es/mainProjectsData_es";
+import { mainProjectsEn } from "@/seeders/projects/en/mainProjectsData_en";
+import { useLanguage } from "@/context/LanguageContext";
+import { contentEn } from "@/seeders/pageTexts_en";
+import { contentEs } from "@/seeders/pageTexts_es";
 
 function ProyectDetail({ params }) {
   const { id } = use(params);
-  const proyecto = mainProyects.find((p) => p.id === id);
+
+  const { lang } = useLanguage();
+
+  let data;
+  let mainProjectsData;
+
+  if (lang === "en") {
+    data = contentEn;
+    mainProjectsData = mainProjectsEn;
+  } else if (lang === "es") {
+    data = contentEs;
+    mainProjectsData = mainProjectsEs;
+  }
+
+  const proyecto = mainProjectsData.find((p) => p.id === id);
 
   if (!proyecto) {
     notFound();
@@ -16,7 +36,7 @@ function ProyectDetail({ params }) {
   return (
     <div className="bg-primary-light min-h-screen py-10 sm:py-20 px-4 sm:px-8 md:px-10">
       <h1 className="text-3xl sm:text-5xl font-bold mb-6 sm:mb-10 text-center text-primary-dark font-unbounded">
-        Detalles del proyecto
+        {data.projectDetail.tittle}
       </h1>
 
       {/* Layout principal: flex-col en móvil/tablet | lg:flex-row en PC */}
@@ -37,7 +57,7 @@ function ProyectDetail({ params }) {
             <section className="px-6 pb-6">
               {/* Descripción - Espacio aumentado con pt-4 y pb-8 */}
               <div className="border-b-2 border-accent pt-4 pb-8">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 text-secondary-dark font-grotesk">Descripción</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 text-secondary-dark font-grotesk">{data.projectDetail.desc}</h3>
                 {/* Texto cambiado a gris */}
                 <p className="text-sm sm:text-base leading-relaxed text-gray-600 font-mono">{proyecto.desc}</p>
               </div>
@@ -45,7 +65,7 @@ function ProyectDetail({ params }) {
               {/* Funcionalidades desarrolladas - Espacio aumentado con pt-4 y pb-6 */}
               <div className="border-b-2 border-accent pt-4 pb-6">
                 <h3 className="text-xl sm:text-2xl font-bold mb-3 text-secondary-dark font-grotesk">
-                  Funcionalidades desarrolladas
+                  {data.projectDetail.functions}
                 </h3>
                 {/* Texto cambiado a gris */}
                 <ul className="list-disc list-inside space-y-2 text-sm sm:text-base text-gray-600 font-mono">
@@ -59,7 +79,7 @@ function ProyectDetail({ params }) {
 
               {/* Tecnologías utilizadas - Espacio aumentado con pt-4 y pb-6 */}
               <div className="border-b-2 border-accent pt-4 pb-6">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 text-secondary-dark font-grotesk">Tecnologías utilizadas</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 text-secondary-dark font-grotesk">{data.projectDetail.tech}</h3>
                 {/* Texto cambiado a gris y negrita para destacar */}
                 <p className="text-sm sm:text-base font-semibold text-gray-600 font-mono">{proyecto.techUsed.join(", ")}</p>
               </div>
@@ -68,7 +88,7 @@ function ProyectDetail({ params }) {
               {proyecto.colaborators?.existed === true && (
                 <div className="border-b-2 border-accent pt-4 pb-6">
                   <h3 className="text-xl sm:text-2xl font-bold font-grotesk mb-3 text-secondary-dark">
-                    Colaboradores de Front-End
+                    {data.projectDetail.colaborators}
                   </h3>
                   <ul className="space-y-1 font-mono">
                     {/* El Link se mantiene con colores de Link */}
@@ -91,7 +111,7 @@ function ProyectDetail({ params }) {
               <div className="pt-4">
                 <div className="flex items-center gap-3 mb-2">
                   <h3 className="text-xl sm:text-2xl font-bold text-secondary-dark font-grotesk">
-                    Desarrollado para {proyecto.for.name}
+                    {data.projectDetail.devFor} {proyecto.for.name}
                   </h3>
                   <Link href={proyecto.for.web} target="_blank" rel="noopener noreferrer">
                     <Image
@@ -105,7 +125,7 @@ function ProyectDetail({ params }) {
                 </div>
                 {/* Texto de tiempo de desarrollo cambiado a gris */}
                 <p className="text-sm sm:text-base text-gray-600 font-mono">
-                  Tiempo de desarrollo: <span className="font-semibold text-gray-600">{proyecto.for.when}</span>
+                  {data.projectDetail.time}: <span className="font-semibold text-gray-600">{proyecto.for.when}</span>
                 </p>
               </div>
             </section>
@@ -119,14 +139,15 @@ function ProyectDetail({ params }) {
               target="_blank"
               className="flex-1 text-center px-4 py-3 sm:px-6 bg-secondary-dark text-white rounded-lg hover:bg-secondary-dark/70 hover:scale-105 transition-colors text-sm sm:text-lg font-semibold"
             >
-              Ver Repositorio
+              {data.buttons.proyects.detail.repo}
             </Link>
             <Link
               href={proyecto.deployUrl}
               target="_blank"
               className="flex-1 text-center px-4 py-3 sm:px-6 bg-primary-base text-white rounded-lg hover:bg-primary-base/70 hover:scale-105 transition-colors text-sm sm:text-lg font-semibold"
             >
-              Ver Proyecto en vivo{proyecto.note.exist === true && <span className="text-red-500">*</span>}
+              {data.buttons.proyects.detail.deploy}
+              {proyecto.note.exist === true && <span className="text-red-500">*</span>}
             </Link>
           </div>
 

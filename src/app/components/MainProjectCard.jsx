@@ -1,5 +1,8 @@
 "use client";
 
+import { useLanguage } from "@/context/LanguageContext";
+import { contentEn } from "@/seeders/pageTexts_en";
+import { contentEs } from "@/seeders/pageTexts_es";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -9,6 +12,16 @@ import { useState, useEffect } from "react";
 export function MainProjectCard({ proyect }) {
   const [currentImage, setCurrentImage] = useState(0);
   const [fade, setFade] = useState(true);
+
+  const { lang, toggleLang } = useLanguage();
+
+  let data;
+
+  if (lang === "en") {
+    data = contentEn.buttons.details;
+  } else {
+    data = contentEs.buttons.details;
+  }
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -71,7 +84,7 @@ export function MainProjectCard({ proyect }) {
             href={`/proyect-detail/${proyect.id}`}
             className="inline-block w-full text-center px-4 py-2 sm:px-6 sm:py-2 bg-primary-base text-white rounded-xl hover:bg-primary-dark transition-colors hover:scale-105 font-unbounded font-semibold text-sm sm:text-base"
           >
-            Ver detalles
+            {data}
           </Link>
         </div>
       </div>

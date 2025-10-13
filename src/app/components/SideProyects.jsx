@@ -1,13 +1,30 @@
 "use client";
 
-import { sideProyects } from "@/seeders/sideProyectsData";
+import { useLanguage } from "@/context/LanguageContext";
+import { contentEn } from "@/seeders/pageTexts_en";
+import { contentEs } from "@/seeders/pageTexts_es";
+import { sideProjectsEn } from "@/seeders/projects/en/sideProjetsData_en";
+import { sideProjectsEs } from "@/seeders/projects/es/sideProjectsData_es";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 function SideProyects() {
+  const { lang } = useLanguage();
+
+  let data;
+  let sideProjectsData;
+
+  if (lang === "en") {
+    data = contentEn.buttons.proyects.side;
+    sideProjectsData = sideProjectsEn;
+  } else {
+    data = contentEs.buttons.proyects.side;
+    sideProjectsData = sideProjectsEs;
+  }
+
   // Triplicamos para asegurar loop continuo
-  const projects = [...sideProyects, ...sideProyects, ...sideProyects];
+  const projects = [...sideProjectsData, ...sideProjectsData, ...sideProjectsData];
 
   return (
     <>
@@ -21,7 +38,7 @@ function SideProyects() {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(calc(-350px * ${sideProyects.length} - ${sideProyects.length * 20}px));
+            transform: translateX(calc(-350px * ${sideProjectsData.length} - ${sideProjectsData.length * 20}px));
           }
         }
 
@@ -64,13 +81,13 @@ function SideProyects() {
                       href={proyecto.repoUrl}
                       className="inline-block text-center p-2 w-full bg-primary-base text-white rounded-full hover:scale-110 hover:bg-primary-dark transition-colors"
                     >
-                      Repositorio
+                      {data.repo}
                     </Link>
                     <Link
                       href={proyecto.deployUrl}
                       className="inline-block text-center p-2 w-full bg-primary-base text-white rounded-full hover:scale-110 hover:bg-primary-dark transition-colors"
                     >
-                      Deploy
+                      {data.deploy}
                     </Link>
                   </div>
                 </div>

@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Geist, Geist_Mono, Space_Grotesk, Unbounded } from "next/font/google";
 import NavBar from "@/components/NavBar";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,8 +24,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata = {
-  title: "Mi Portafolio",
-  description: "Portafolio que contiene mis proyectos y sus detalles",
+  title: "My Portfolio",
+  description: "Portfolio containing my projects and their details",
   icons: {
     icon: "/favicon.webp",
   },
@@ -37,8 +38,10 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle:wght@400;700&display=swap" rel="stylesheet" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}  ${unbounded.variable} ${spaceGrotesk.variable}`}>
-        <NavBar />
-        {children}
+        <LanguageProvider>
+          <NavBar />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

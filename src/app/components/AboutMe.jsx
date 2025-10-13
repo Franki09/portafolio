@@ -1,13 +1,30 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import { useTilt } from "../hooks/useTilt";
+
+import { useLanguage } from "@/context/LanguageContext";
+import { contentEn } from "@/seeders/pageTexts_en";
+import { contentEs } from "@/seeders/pageTexts_es";
 
 function AboutMe() {
   const [ref, isVisible] = useScrollAnimation();
   const { transform, handleMouseMove, resetTilt } = useTilt(45, 0.95);
+
+  const { lang } = useLanguage();
+
+  let data;
+
+  if (lang === "en") {
+    data = contentEn.aboutMe;
+  } else if (lang === "es") {
+    data = contentEs.aboutMe;
+  }
+
   return (
     <div ref={ref} className={isVisible ? "animate-fade-up" : "opacity-0"}>
       <div
@@ -22,7 +39,6 @@ function AboutMe() {
             transformStyle: "preserve-3d",
             perspective: "1000px",
           }}
-          // 🟢 CAMBIO CLAVE: Añade 'flex-shrink-0' aquí
           className="rounded-full transition-transform duration-200 ease-[cubic-bezier(0.25,1,0.5,1)] flex-shrink-0"
         >
           <Image
@@ -35,31 +51,15 @@ function AboutMe() {
         </div>
 
         <div className="bg-secondary-light rounded-md p-6 sm:p-8 flex flex-col max-w-xl md:max-w-2xl">
-          <h2 className="pb-4 text-secondary-dark text-3xl sm:text-4xl font-bbh">Hola!</h2>
+          <h2 className="pb-4 text-secondary-dark text-3xl sm:text-4xl font-bbh">{data.tittle}!</h2>
 
           <div className="pb-3 text-gray-600 font-mono text-sm sm:text-base">
-            <p className="pb-3">
-              Soy un desarrollador frontend apasionado por crear experiencias digitales que realmente sumen valor. Mi día a día
-              gira en dar vida a interfaces modernas, funcionales y bien estructuradas. Más allá del código, lo que más me motiva
-              es pensar en cómo cada detalle puede mejorar la experiencia de usuario y hacer que una web sea intuitiva y agradable
-              de usar.
-            </p>
-            <p className="pb-3">
-              Me considero una persona creativa, responsable y colaboradora, siempre abierta a aprender algo nuevo y a compartir
-              lo que sé. Valoro mucho el trabajo en equipo, porque creo que los mejores proyectos surgen cuando las ideas y
-              perspectivas se combinan. Me gusta trabajar en entornos ágiles y dinámicos, donde puedo crecer profesionalmente y
-              aportar no solo en lo técnico, sino también en lo humano.
-            </p>
-            <p className="pb-3">
-              Actualmente busco seguir evolucionando como profesional, enfrentar nuevos desafíos y, sobre todo, aportar valor en
-              cada proyecto en el que participe. Para mí, cada línea de código es una oportunidad de aprender, mejorar y crear
-              algo que realmente marque la diferencia.
-            </p>
+            <p className="pb-3">{data.texts[1]}</p>
+            <p className="pb-3">{data.texts[2]}</p>
+            <p className="pb-3">{data.texts[3]}</p>
           </div>
 
-          <h2 className="pb-5 text-secondary-dark text-base sm:text-lg font-grotesk">
-            Estas son las tecnologias principales que uso:
-          </h2>
+          <h2 className="pb-5 text-secondary-dark text-base sm:text-lg font-grotesk">{data.tech}</h2>
 
           <div className="flex flex-wrap justify-center items-center gap-5 sm:gap-7">
             <Link href={"https://developer.mozilla.org/en-US/docs/Web/JavaScript"} target="_blank" rel="noopener noreferrer">

@@ -1,4 +1,4 @@
-export const mainProyects = [
+export const mainProjectsEs = [
   {
     id: "1",
     name: "L-tronics",
@@ -23,7 +23,7 @@ export const mainProyects = [
       name: "Henry Bootcamp",
       image: "/logos/logoHenry.jpg",
       web: "https://www.soyhenry.com/",
-      when: "May - June / 2025 ",
+      when: "Mayo - Junio / 2025 ",
     },
     repoUrl: "https://github.com/Franki09/PM4FE-Franki09",
     deployUrl: "https://proyecto-m4-eight.vercel.app/",
@@ -65,7 +65,7 @@ export const mainProyects = [
       name: "Henry Bootcamp",
       image: "/logos/logoHenry.jpg",
       web: "https://www.soyhenry.com/",
-      when: "June - August / 2025",
+      when: "Junio - Agosto / 2025",
     },
     repoUrl: "https://github.com/solvex-company/solvex-front",
     deployUrl: "https://solvex-front.vercel.app/",

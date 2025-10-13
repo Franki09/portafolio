@@ -4,19 +4,32 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail, MdMenu, MdClose } from "react-icons/md";
+import { useLanguage } from "@/context/LanguageContext";
+import { contentEn } from "@/seeders/pageTexts_en";
+import { contentEs } from "@/seeders/pageTexts_es";
 
 function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { lang, toggleLang } = useLanguage();
+
+  // Declarar data fuera del if para que sea accesible en todo el componente
+  let data;
+
+  if (lang === "en") {
+    data = contentEn.navbar;
+  } else {
+    data = contentEs.navbar;
+  }
 
   return (
     <nav className="fixed top-0 left-0 shadow-md z-50 bg-secondary-light/70 backdrop-blur-sm w-full h-16 flex justify-between items-center px-5 sm:px-8">
       {/* Menú principal desktop */}
       <div className="hidden md:flex gap-10 text-lg font-unbounded font-bold">
         <Link href={"/#about"} className="text-primary-base hover:text-accent">
-          Sobre Mi
+          {data.about}
         </Link>
         <Link href={"/#proyects"} className="text-primary-base hover:text-accent">
-          Mis Proyectos
+          {data.myProjects}
         </Link>
       </div>
 
@@ -28,9 +41,30 @@ function NavBar() {
         </button>
       </div>
 
+      {/* Selector de idioma desktop (centrado) */}
+      <div className="hidden md:flex items-center gap-3 absolute left-1/2 transform -translate-x-1/2">
+        <button
+          onClick={() => lang !== "es" && toggleLang()}
+          className={`font-unbounded font-bold text-xl transition-colors ${
+            lang === "es" ? "text-accent cursor-default" : "text-primary-base/60 hover:text-primary-base cursor-pointer"
+          }`}
+        >
+          ES
+        </button>
+        <span className="text-primary-base/60 text-xl">|</span>
+        <button
+          onClick={() => lang !== "en" && toggleLang()}
+          className={`font-unbounded font-bold text-xl transition-colors ${
+            lang === "en" ? "text-accent cursor-default" : "text-primary-base/60 hover:text-primary-base cursor-pointer"
+          }`}
+        >
+          EN
+        </button>
+      </div>
+
       {/* Sección de contacto desktop */}
       <div className="hidden md:flex items-center gap-5">
-        <h2 className="text-primary-base font-bold text-lg font-unbounded">Contacto:</h2>
+        <h2 className="text-primary-base font-bold text-lg font-unbounded">{data.contact}:</h2>
         <Link
           href={"https://github.com/Franki09"}
           target="_blank"
@@ -65,15 +99,36 @@ function NavBar() {
             onClick={() => setMenuOpen(false)}
             className="text-primary-base hover:text-accent text-lg font-unbounded"
           >
-            Sobre Mi
+            {data.about}
           </Link>
           <Link
             href={"/#proyects"}
             onClick={() => setMenuOpen(false)}
             className="text-primary-base hover:text-accent text-lg font-unbounded"
           >
-            Mis Proyectos
+            {data.myProjects}
           </Link>
+
+          {/* Selector de idioma móvil */}
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => lang !== "es" && toggleLang()}
+              className={`font-unbounded font-bold text-xl transition-colors ${
+                lang === "es" ? "text-accent cursor-default" : "text-primary-base/60 cursor-pointer"
+              }`}
+            >
+              ES
+            </button>
+            <span className="text-primary-base/60 text-xl">|</span>
+            <button
+              onClick={() => lang !== "en" && toggleLang()}
+              className={`font-unbounded font-bold text-xl transition-colors ${
+                lang === "en" ? "text-accent cursor-default" : "text-primary-base/60 cursor-pointer"
+              }`}
+            >
+              EN
+            </button>
+          </div>
 
           <div className="flex gap-6 mt-2">
             <Link
