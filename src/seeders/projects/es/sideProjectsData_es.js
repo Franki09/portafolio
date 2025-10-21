@@ -35,4 +35,13 @@ export const sideProjectsEs = [
     repoUrl: "https://github.com/Franki09/recipe-page",
     deployUrl: "https://recipe-page-ashy-rho.vercel.app/",
   },
+  {
+    id: "5",
+    name: "TravelSpot",
+    image: "/proyectos/sideProyects/TravelSpotExpo.jpg",
+    desc: "Aplicacion creada para probar React Native y Expo. Puedes ver el uso de stacks y tabs, navegación, y manejo de estados globales.",
+    techUsed: ["React Native", "Expo", "Tailwind CSS"],
+    repoUrl: "https://github.com/Franki09/TravelSpot",
+    deployUrl: "",
+  },
 ];

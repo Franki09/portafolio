@@ -23,7 +23,8 @@ export const contentEn = {
   projects: {
     main: {
       tittle: "My Main Projects",
-      subTittle: "Projects I dedicated more time to — more complex and with greater functionality.",
+      subTittle:
+        "Projects I dedicated more time to — more complex and with greater functionality. Or that I consider relevant to showcase.",
     },
     side: {
       tittle: "My Side Projects",

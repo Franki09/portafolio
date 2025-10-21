@@ -10,6 +10,7 @@ import { useTilt } from "../hooks/useTilt";
 import { useLanguage } from "@/context/LanguageContext";
 import { contentEn } from "@/seeders/pageTexts_en";
 import { contentEs } from "@/seeders/pageTexts_es";
+import { aboutTech } from "@/seeders/aboutTech";
 
 function AboutMe() {
   const [ref, isVisible] = useScrollAnimation();
@@ -62,65 +63,17 @@ function AboutMe() {
           <h2 className="pb-5 text-secondary-dark text-base sm:text-lg font-grotesk">{data.tech}</h2>
 
           <div className="flex flex-wrap justify-center items-center gap-5 sm:gap-7">
-            <Link href={"https://developer.mozilla.org/en-US/docs/Web/JavaScript"} target="_blank" rel="noopener noreferrer">
-              <Image
-                src={"/logos/JavaScript-logo.png"}
-                alt={"JavaScript"}
-                width={70}
-                height={70}
-                className="rounded-full w-10 h-10 sm:w-[70px] sm:h-[70px] hover:animate-jump hover:shadow-[0_0_25px_10px] hover:shadow-accent/60 transition-all duration-300"
-              />
-            </Link>
-
-            <Link href={"https://www.typescriptlang.org/"} target="_blank" rel="noopener noreferrer">
-              <Image
-                src={"/logos/Typescript-logo.png"}
-                alt={"TypeScript"}
-                width={70}
-                height={70}
-                className="rounded-full w-10 h-10 sm:w-[70px] sm:h-[70px] hover:animate-jump hover:shadow-[0_0_25px_10px] hover:shadow-accent/60 transition-all duration-300"
-              />
-            </Link>
-
-            <Link href={"https://es.react.dev/"} target="_blank" rel="noopener noreferrer">
-              <Image
-                src={"/logos/React-logo.png"}
-                alt={"React"}
-                width={70}
-                height={70}
-                className="rounded-full w-10 h-10 sm:w-[70px] sm:h-[70px] hover:animate-jump hover:shadow-[0_0_25px_10px] hover:shadow-accent/60 transition-all duration-300"
-              />
-            </Link>
-
-            <Link href={"https://nextjs.org/docs"} target="_blank" rel="noopener noreferrer">
-              <Image
-                src={"/logos/Next-logo.png"}
-                alt={"Next"}
-                width={70}
-                height={70}
-                className="rounded-full w-10 h-10 sm:w-[70px] sm:h-[70px] hover:animate-jump hover:shadow-[0_0_25px_10px] hover:shadow-accent/60 transition-all duration-300"
-              />
-            </Link>
-
-            <Link href={"https://tailwindcss.com/"} target="_blank" rel="noopener noreferrer">
-              <Image
-                src={"/logos/TailWind-logo.png"}
-                alt={"Tailwind"}
-                width={70}
-                height={70}
-                className="rounded-full w-10 h-10 sm:w-[70px] sm:h-[70px] hover:animate-jump hover:shadow-[0_0_25px_10px] hover:shadow-accent/60 transition-all duration-300"
-              />
-            </Link>
-
-            <Link href={"https://vercel.com/"} target="_blank" rel="noopener noreferrer">
-              <Image
-                src={"/logos/Vercel-logo.png"}
-                alt={"Vercel"}
-                width={70}
-                height={70}
-                className="rounded-full w-10 h-10 sm:w-[70px] sm:h-[70px] hover:animate-jump hover:shadow-[0_0_25px_10px] hover:shadow-accent/60 transition-all duration-300"
-              />
-            </Link>
+            {aboutTech.map((tech, index) => (
+              <Link key={index} href={tech.url} target="_blank" rel="noopener noreferrer">
+                <Image
+                  src={tech.logo}
+                  alt={tech.name}
+                  width={70}
+                  height={70}
+                  className="bg-white rounded-full w-10 h-10 sm:w-[70px] sm:h-[70px] hover:animate-jump hover:shadow-[0_0_25px_10px] hover:shadow-accent/60 transition-all duration-300"
+                />
+              </Link>
+            ))}
           </div>
         </div>
       </div>
