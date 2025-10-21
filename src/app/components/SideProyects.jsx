@@ -80,12 +80,16 @@ function SideProyects() {
                     <Link
                       href={proyecto.repoUrl}
                       className="inline-block text-center p-2 w-full bg-primary-base text-white rounded-full hover:scale-110 hover:bg-primary-dark transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {data.repo}
                     </Link>
                     <Link
                       href={proyecto.deployUrl}
                       className="inline-block text-center p-2 w-full bg-primary-base text-white rounded-full hover:scale-110 hover:bg-primary-dark transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {data.deploy}
                     </Link>
