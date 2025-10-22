@@ -6,7 +6,9 @@ export const sideProjectsEs = [
     desc: "Challenge que hice para FrontEnd mentor que se basaba en crear un componente de QR con los elementos que te brindaban.",
     techUsed: ["Next.js", "Tailwind CSS", "Vercel"],
     repoUrl: "https://github.com/Franki09/FrontendMentor-QrComponent",
-    deployUrl: "https://frontend-mentor-qr-component-pi.vercel.app/",
+    deployUrl: {
+      vercel: "https://frontend-mentor-qr-component-pi.vercel.app/",
+    },
   },
   {
     id: "2",
@@ -15,7 +17,9 @@ export const sideProjectsEs = [
     desc: "Challenge que hice para FrontEnd mentor que se basaba en crear una card que simulaba una preview de un post, hecho con elementos brindados por ellos.",
     techUsed: ["Next.js", "Tailwind CSS", "Vercel"],
     repoUrl: "https://github.com/Franki09/Blog-Preview-Card",
-    deployUrl: "https://blog-preview-card-theta-sooty.vercel.app/",
+    deployUrl: {
+      vercel: "https://blog-preview-card-theta-sooty.vercel.app/",
+    },
   },
   {
     id: "3",
@@ -24,7 +28,9 @@ export const sideProjectsEs = [
     desc: "Challenge de frontend mentor en donde debo hacer un componente que contenga varios links de mis redes sociales. Con elementos proporcionados por ellos.",
     techUsed: ["Next.js", "Tailwind CSS", "Vercel"],
     repoUrl: "https://github.com/Franki09/Social-Links-Card",
-    deployUrl: "https://social-links-card-ten.vercel.app/",
+    deployUrl: {
+      vercel: "https://social-links-card-ten.vercel.app/",
+    },
   },
   {
     id: "4",
@@ -33,7 +39,9 @@ export const sideProjectsEs = [
     desc: "Un challenge de Front End mentor, sobre hacer una pagina con una receta para un platillo detallado. Hecho con elementos brindados por ellos.",
     techUsed: ["Next.js", "Tailwind CSS", "Vercel"],
     repoUrl: "https://github.com/Franki09/recipe-page",
-    deployUrl: "https://recipe-page-ashy-rho.vercel.app/",
+    deployUrl: {
+      vercel: "https://recipe-page-ashy-rho.vercel.app/",
+    },
   },
   {
     id: "5",
@@ -42,6 +50,8 @@ export const sideProjectsEs = [
     desc: "Aplicacion creada para probar React Native y Expo. Puedes ver el uso de stacks y tabs, navegación, y manejo de estados globales.",
     techUsed: ["React Native", "Expo", "Tailwind CSS"],
     repoUrl: "https://github.com/Franki09/TravelSpot",
-    deployUrl: "",
+    deployUrl: {
+      apk: "https://github.com/Franki09/TravelSpot/releases/latest",
+    },
   },
 ];

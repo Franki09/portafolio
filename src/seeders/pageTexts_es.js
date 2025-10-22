@@ -55,6 +55,7 @@ export const contentEs = {
       side: {
         repo: "Repositorio",
         deploy: "Deploy",
+        apkDownload: "Descargar APK",
       },
       detail: {
         repo: "Ver Repositorio",

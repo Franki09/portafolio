@@ -54,6 +54,7 @@ export const contentEn = {
       side: {
         repo: "Repository",
         deploy: "Deploy",
+        apkDownload: "Download APK",
       },
       detail: {
         repo: "View Repository",

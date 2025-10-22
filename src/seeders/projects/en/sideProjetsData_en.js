@@ -6,7 +6,9 @@ export const sideProjectsEn = [
     desc: "Challenge I completed for Frontend Mentor, which consisted of creating a QR component using the assets they provided.",
     techUsed: ["Next.js", "Tailwind CSS", "Vercel"],
     repoUrl: "https://github.com/Franki09/FrontendMentor-QrComponent",
-    deployUrl: "https://frontend-mentor-qr-component-pi.vercel.app/",
+    deployUrl: {
+      vercel: "https://frontend-mentor-qr-component-pi.vercel.app/",
+    },
   },
   {
     id: "2",
@@ -15,7 +17,9 @@ export const sideProjectsEn = [
     desc: "Challenge from Frontend Mentor focused on building a card that simulates a blog post preview, using elements provided by them.",
     techUsed: ["Next.js", "Tailwind CSS", "Vercel"],
     repoUrl: "https://github.com/Franki09/Blog-Preview-Card",
-    deployUrl: "https://blog-preview-card-theta-sooty.vercel.app/",
+    deployUrl: {
+      vercel: "https://blog-preview-card-theta-sooty.vercel.app/",
+    },
   },
   {
     id: "3",
@@ -24,7 +28,9 @@ export const sideProjectsEn = [
     desc: "Frontend Mentor challenge where I had to create a component containing several links to my social networks, using the assets provided.",
     techUsed: ["Next.js", "Tailwind CSS", "Vercel"],
     repoUrl: "https://github.com/Franki09/Social-Links-Card",
-    deployUrl: "https://social-links-card-ten.vercel.app/",
+    deployUrl: {
+      vercel: "https://social-links-card-ten.vercel.app/",
+    },
   },
   {
     id: "4",
@@ -33,7 +39,9 @@ export const sideProjectsEn = [
     desc: "A Frontend Mentor challenge about creating a detailed recipe page for a dish, using the elements provided by them.",
     techUsed: ["Next.js", "Tailwind CSS", "Vercel"],
     repoUrl: "https://github.com/Franki09/recipe-page",
-    deployUrl: "https://recipe-page-ashy-rho.vercel.app/",
+    deployUrl: {
+      vercel: "https://recipe-page-ashy-rho.vercel.app/",
+    },
   },
   {
     id: "5",
@@ -42,6 +50,8 @@ export const sideProjectsEn = [
     desc: "Application created to test React Native and Expo. You can see the use stacks and tabs, navigation, and global state management.",
     techUsed: ["React Native", "Expo", "Tailwind CSS"],
     repoUrl: "https://github.com/Franki09/TravelSpot",
-    deployUrl: "",
+    deployUrl: {
+      apk: "https://github.com/Franki09/TravelSpot/releases/latest",
+    },
   },
 ];
