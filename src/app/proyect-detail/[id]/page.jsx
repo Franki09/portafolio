@@ -35,7 +35,7 @@ function ProyectDetail({ params }) {
 
   return (
     <div className="bg-primary-light min-h-screen py-10 sm:py-20 px-4 sm:px-8 md:px-10">
-      <h1 className="text-3xl sm:text-5xl font-bold mb-6 sm:mb-10 text-center text-primary-dark font-unbounded">
+      <h1 className="text-3xl sm:text-5xl font-bold my-8 mt-14 sm:my-12 text-center text-primary-dark font-unbounded">
         {data.projectDetail.tittle}
       </h1>
 

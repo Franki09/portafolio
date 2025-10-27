@@ -29,7 +29,7 @@ export const mainProjectsEs = [
     deployUrl: "https://proyecto-m4-eight.vercel.app/",
     note: {
       exist: true,
-      text: "No se puede experimentar al completo el proyecto ya que el deploy del back no funciona y no tengo acceso a el, disculpa las molestias",
+      text: "Es posible que las solicitudes tarden un poco en procesarse al inicio, debido a la versión actual del backend en uso. Disculpa las molestias.",
     },
   },
   {
